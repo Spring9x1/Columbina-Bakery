@@ -152,13 +152,13 @@
         // Initialize Blog (Dummy Data)
         const initBlog = () => {
             const blogs = [
-                { img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35", title: "The Art of Crafting Traditional Moon Cakes", cat: "Behind the Scenes", date: "Aug 15, 2026" },
-                { img: "https://images.unsplash.com/photo-1589367920969-ab8e050bfc14", title: "Sourdough: The Secret to Perfect Crust", cat: "Tips", date: "Sep 02, 2026" },
-                { img: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf", title: "Coffee & Pastry Pairing Guide", cat: "Guide", date: "Oct 10, 2026" }
+                { img: "assets/images/The%20Art%20of%20Crafting%20Traditional%20Moon%20Cakes.jpg", title: "The Art of Crafting Traditional Moon Cakes", cat: "Behind the Scenes", date: "Aug 15, 2026" },
+                { img: "assets/images/Sourdough%20The%20Secret%20to%20Perfect%20Crust.jpg", title: "Sourdough: The Secret to Perfect Crust", cat: "Tips", date: "Sep 02, 2026" },
+                { img: "assets/images/Coffe%20%26%20Pastry%20Pairin%20Guide.jpg", title: "Coffee & Pastry Pairing Guide", cat: "Guide", date: "Oct 10, 2026" }
             ];
             document.getElementById('blog-grid').innerHTML = blogs.map(b => `
                 <div class="blog-card">
-                    <img src="${b.img}?auto=format&fit=crop&w=600&q=80" alt="${b.title}" class="blog-img">
+                    <img src="${b.img}" alt="${b.title}" class="blog-img">
                     <div class="blog-content">
                         <div class="blog-meta"><span>${b.cat}</span><span>${b.date}</span></div>
                         <h3 class="blog-heading">${b.title}</h3>
@@ -375,6 +375,58 @@
         document.getElementById('close-cart').addEventListener('click', closeSidebars);
         document.getElementById('close-wishlist').addEventListener('click', closeSidebars);
         document.getElementById('sidebar-overlay').addEventListener('click', closeSidebars);
+
+        document.addEventListener('click', (event) => {
+            const addCartBtn = event.target.closest('[data-add-cart]');
+            const addDetailCartBtn = event.target.closest('[data-add-detail-cart]');
+            const wishToggleBtn = event.target.closest('[data-wishlist-toggle]');
+            const cartDeltaBtn = event.target.closest('[data-cart-delta]');
+            const removeCartBtn = event.target.closest('[data-remove-cart]');
+            const checkoutSingleBtn = event.target.closest('[data-checkout-single]');
+            const detailCloseBtn = event.target.closest('[data-detail-close]');
+            const qtyBtn = event.target.closest('[data-temp-qty]');
+
+            if(addCartBtn) {
+                addToCart(parseInt(addCartBtn.dataset.addCart, 10));
+                return;
+            }
+
+            if(addDetailCartBtn) {
+                addToCart(parseInt(addDetailCartBtn.dataset.addDetailCart, 10), parseInt(document.getElementById('detail-qty')?.value || '1', 10));
+                return;
+            }
+
+            if(wishToggleBtn) {
+                toggleWishlist(parseInt(wishToggleBtn.dataset.wishlistToggle, 10), event);
+                return;
+            }
+
+            if(cartDeltaBtn) {
+                updateCartQty(parseInt(cartDeltaBtn.dataset.cartId, 10), parseInt(cartDeltaBtn.dataset.cartDelta, 10));
+                return;
+            }
+
+            if(removeCartBtn) {
+                removeFromCart(parseInt(removeCartBtn.dataset.removeCart, 10));
+                return;
+            }
+
+            if(checkoutSingleBtn) {
+                checkoutSingleWhatsApp(parseInt(checkoutSingleBtn.dataset.checkoutSingle, 10));
+                return;
+            }
+
+            if(detailCloseBtn) {
+                navigate('detail', parseInt(detailCloseBtn.dataset.detailClose, 10));
+                return;
+            }
+
+            if(qtyBtn) {
+                const delta = parseInt(qtyBtn.dataset.tempQty, 10);
+                window.updateTempQty(delta);
+                return;
+            }
+        });
 
         // Mobile Menu Toggle
         document.getElementById('hamburger').addEventListener('click', () => {
