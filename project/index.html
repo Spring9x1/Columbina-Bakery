@@ -1,0 +1,365 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Columbina - Premium Artisan Bakery specializing in handcrafted Moon Cakes and luxurious desserts.">
+    <meta name="keywords" content="bakery, moon cake, artisan pastry, premium dessert, columbina">
+    <meta property="og:title" content="Columbina | Premium Artisan Bakery">
+    <meta property="og:description" content="Handcrafted Moon Cakes made from high-quality ingredients.">
+    <title>Columbina | Premium Artisan Bakery</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader"><div class="spinner"></div></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container d-flex justify-between align-center">
+            <a href="#home" class="logo">Columbina.</a>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#products" class="nav-link">Shop</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#blog" class="nav-link">Journal</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <button class="nav-icon" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-icon" id="wishlist-btn" aria-label="Wishlist">
+                    <i class="far fa-heart"></i>
+                    <span class="badge" id="wishlist-count">0</span>
+                </button>
+                <button class="nav-icon" id="cart-btn" aria-label="Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge" id="cart-count">0</span>
+                </button>
+                <i class="fas fa-bars hamburger" id="hamburger"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area (SPA Views) -->
+    <main id="app">
+        <!-- ================= PAGE: HOME ================= -->
+        <section id="page-home" class="page-view active">
+            <header class="hero">
+                <div class="container">
+                    <div class="hero-content" data-aos="fade-up">
+                        <h1>The Pinnacle of Handcrafted Pastry</h1>
+                        <p>Experience the luxury of Columbina's signature Moon Cakes and modern desserts. Crafted with tradition, designed for elegance.</p>
+                        <div class="hero-btns">
+                            <a href="#products" class="btn btn-primary">Order Now</a>
+                            <a href="#about" class="btn btn-outline hero-outline">Our Story</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="section-padding">
+                <div class="container text-center">
+                    <h2 class="section-title" data-aos="fade-up">Signature Collection</h2>
+                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Our finest selection of handcrafted Moon Cakes</p>
+                    
+                    <div class="grid grid-4" id="home-featured-products" data-aos="fade-up" data-aos-delay="200">
+                        <!-- Populated by JS -->
+                    </div>
+                    
+                    <div class="mt-50">
+                        <a href="#products" class="btn btn-outline">Explore All Products</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-padding section-white">
+                <div class="container">
+                    <div class="grid grid-2 align-center">
+                        <div data-aos="fade-right">
+                            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=80" alt="Baking Process" class="media-rounded">
+                        </div>
+                        <div data-aos="fade-left" class="story-copy">
+                            <h2 class="section-title">The Art of Baking</h2>
+                            <p class="story-lead">At Columbina, we believe that baking is an art form. Every pastry is meticulously crafted using only the finest ingredients sourced globally. Our signature Moon Cakes blend century-old traditional recipes with contemporary flavor profiles.</p>
+                            <ul class="story-list">
+                                <li><i class="fas fa-check story-check"></i> Premium French Butter & Flour</li>
+                                <li><i class="fas fa-check story-check"></i> No Artificial Preservatives</li>
+                                <li><i class="fas fa-check story-check"></i> Masterfully Handcrafted Daily</li>
+                            </ul>
+                            <a href="#about" class="btn btn-primary">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- ================= PAGE: PRODUCTS / SHOP ================= -->
+        <section id="page-products" class="page-view">
+            <div class="section-padding page-offset">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h1 class="section-title" data-aos="fade-up">Our Artisan Menu</h1>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Delight in every bite</p>
+                    </div>
+                    
+                    <div class="shop-controls d-flex align-center justify-between shop-controls-wrap" data-aos="fade-up">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search-input" placeholder="Search for delicacies...">
+                        </div>
+                        <div class="filter-tags" id="category-filters">
+                            <button class="filter-btn active" data-filter="All">All</button>
+                            <button class="filter-btn" data-filter="Moon Cake">Moon Cake</button>
+                            <button class="filter-btn" data-filter="Pastry">Pastry</button>
+                            <button class="filter-btn" data-filter="Cake">Cake</button>
+                            <button class="filter-btn" data-filter="Bread">Bread</button>
+                            <button class="filter-btn" data-filter="Cookie">Cookie</button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-4" id="products-grid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE: PRODUCT DETAIL ================= -->
+        <section id="page-detail" class="page-view">
+            <div class="section-padding page-offset">
+                <div class="container">
+                    <a href="#products" class="back-link"><i class="fas fa-arrow-left"></i> Back to Menu</a>
+                    <div class="grid grid-2" id="detail-container">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE: ABOUT ================= -->
+        <section id="page-about" class="page-view">
+            <div class="section-padding page-offset">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h1 class="section-title" data-aos="fade-up">Our Story</h1>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Heritage meets modernity</p>
+                    </div>
+                    <div class="grid grid-2 align-center">
+                        <div data-aos="fade-right">
+                            <h2 class="about-heading">Crafting Memories Since 1998</h2>
+                            <p class="about-copy">Columbina started as a humble family kitchen with a singular vision: to create the perfect Moon Cake. Over decades, our dedication to exceptional quality and artistic presentation transformed us into a premier destination for luxury desserts.</p>
+                            <p class="about-copy">Today, under the guidance of our Master Bakers, we continue to innovate while honoring our roots, ensuring every bite is a celebration of taste and elegance.</p>
+                        </div>
+                        <div data-aos="fade-left">
+                            <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bfc14?auto=format&fit=crop&w=800&q=80" alt="Master Baker" class="media-rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE: GALLERY ================= -->
+        <section id="page-gallery" class="page-view">
+            <div class="section-padding page-offset">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h1 class="section-title" data-aos="fade-up">Visual Feast</h1>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">A glimpse into our aesthetic</p>
+                    </div>
+                    <div class="grid grid-3" id="gallery-grid" data-aos="fade-up">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE: BLOG ================= -->
+        <section id="page-blog" class="page-view">
+            <div class="section-padding page-offset">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h1 class="section-title" data-aos="fade-up">The Journal</h1>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Stories, guides, and baking secrets</p>
+                    </div>
+                    <div class="grid grid-3" id="blog-grid" data-aos="fade-up">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE: CONTACT ================= -->
+        <section id="page-contact" class="page-view">
+            <div class="section-padding page-offset">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h1 class="section-title" data-aos="fade-up">Get in Touch</h1>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">We'd love to hear from you</p>
+                    </div>
+                    <div class="grid grid-2">
+                        <div class="contact-info-card" data-aos="fade-right">
+                            <h2 class="contact-card-title">Visit Our Boutique</h2>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>
+                                    <h4 class="info-title">Address</h4>
+                                    <p class="muted-80">123 Columbina Ave, Culinary District<br>Jakarta, 10110</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-phone"></i></div>
+                                <div>
+                                    <h4 class="info-title">Phone / WhatsApp</h4>
+                                    <p class="muted-80">+62 812 3456 7890</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-clock"></i></div>
+                                <div>
+                                    <h4 class="info-title">Business Hours</h4>
+                                    <p class="muted-80">Mon - Sun: 08:00 AM - 09:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-info-card" data-aos="fade-left">
+                            <h2 class="contact-card-title">Send a Message</h2>
+                            <form class="contact-form" id="contact-form">
+                                <input type="text" placeholder="Your Name" required>
+                                <input type="email" placeholder="Your Email" required>
+                                <input type="text" placeholder="Subject" required>
+                                <textarea rows="4" placeholder="Your Message" required></textarea>
+                                <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Add dummy sections for FAQ, Terms, etc if accessed -->
+        <section id="page-404" class="page-view">
+            <div class="section-padding text-center not-found-wrap">
+                <h1 class="not-found-title">404</h1>
+                <h2>Page Not Found</h2>
+                <br>
+                <a href="#home" class="btn btn-primary">Return Home</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Sidebar Cart -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <aside class="sidebar" id="cart-sidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title">Your Cart</h3>
+            <button class="close-sidebar" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="sidebar-body" id="cart-items">
+            <!-- Populated by JS -->
+        </div>
+        <div class="sidebar-footer">
+            <div class="cart-total">
+                <span>Subtotal:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <button class="btn btn-primary btn-wa checkout-wa-btn" id="checkout-wa-btn">
+                <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
+            </button>
+        </div>
+    </aside>
+
+    <!-- Sidebar Wishlist -->
+    <aside class="sidebar" id="wishlist-sidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title">Your Wishlist</h3>
+            <button class="close-sidebar" id="close-wishlist"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="sidebar-body" id="wishlist-items">
+            <!-- Populated by JS -->
+        </div>
+    </aside>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/6281234567890?text=Hello%20Columbina%20%F0%9F%91%8B%0AI%20have%20an%20inquiry." target="_blank" class="floating-wa" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-4">
+                <div>
+                    <a href="#home" class="footer-logo">Columbina.</a>
+                    <p class="footer-desc">Premium artisan bakery crafting unforgettable moments through exquisite desserts and signature Moon Cakes.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Shop</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#terms">Terms & Conditions</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Newsletter</h4>
+                    <p class="newsletter-desc">Subscribe to get special offers and updates.</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="Email Address" class="newsletter-input">
+                        <button type="submit" class="btn btn-primary newsletter-button"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Columbina Bakery. All rights reserved. Crafted for Spring.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="js/products.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/whatsapp.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>
+
