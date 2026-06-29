@@ -135,7 +135,7 @@
         /* Hero */
         .hero {
             height: 100vh; display: flex; align-items: center; position: relative;
-            background: url('https://images.unsplash.com/photo-1632789139436-1216a69bf480?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            background: url('../assets/images/Banner.png') center/cover no-repeat;
         }
         .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(21, 22, 35, 0.9) 0%, rgba(21, 22, 35, 0.4) 100%); }
         .hero-content { position: relative; z-index: 10; max-width: 600px; color: #fff; }
@@ -259,6 +259,10 @@
         .social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; transition: var(--transition); }
         .social-links a:hover { background: var(--secondary); transform: translateY(-3px); }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 60px; text-align: center; color: #888; font-size: 0.9rem; }
+        [data-theme="dark"] .footer { background: #11141f; }
+        [data-theme="dark"] .footer-logo, [data-theme="dark"] .footer h4, [data-theme="dark"] .footer ul li a, [data-theme="dark"] .footer-bottom { color: #f1f3f8; }
+        [data-theme="dark"] .footer ul li a { color: #c6c8d5; }
+        [data-theme="dark"] .footer-bottom { color: #8a8fa8; border-color: rgba(255,255,255,0.08); }
 /* Extracted inline styles from the original HTML and generated templates */
 .hero-outline { color: #fff; border-color: #fff; }
 .mt-50 { margin-top: 50px; }

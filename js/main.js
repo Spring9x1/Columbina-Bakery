@@ -133,39 +133,52 @@
         // Initialize Gallery
         const initGallery = () => {
             const galleryImages = [
-                "https://images.unsplash.com/photo-1632789139436-1216a69bf480",
-                "https://images.unsplash.com/photo-1555507036-ab1e4006aaeb",
-                "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
-                "https://images.unsplash.com/photo-1509440159596-0249088772ff",
-                "https://images.unsplash.com/photo-1499636136210-6f4ee915583e",
-                "https://images.unsplash.com/photo-1600565151522-861cb704041b"
+                "assets/images/Signature%20Lotus%20Moon%20Cake.png",
+                "assets/images/Classic%20French%20Croissant.png",
+                "assets/images/Strawberry%20Shortcake.png",
+                "assets/images/Assorted%20Cookie%20Box.png",
+                "assets/images/Dark%20Woods%20Black%20Forest.png",
+                "assets/images/Classic%20Tiramisu.png"
             ];
             const grid = document.getElementById('gallery-grid');
             grid.innerHTML = galleryImages.map(src => `
-                <a href="${src}?auto=format&fit=crop&w=1200&q=80" class="glightbox gallery-item">
-                    <img src="${src}?auto=format&fit=crop&w=600&q=80" alt="Gallery Image" class="gallery-img" loading="lazy">
+                <a href="${src}" class="glightbox gallery-item">
+                    <img src="${src}" alt="Gallery Image" class="gallery-img" loading="lazy">
                 </a>
             `).join('');
             GLightbox({ selector: '.glightbox' });
         };
 
-        // Initialize Blog (Dummy Data)
+        const blogPosts = [
+            { id: 1, img: "assets/images/The%20Art%20of%20Crafting%20Traditional%20Moon%20Cakes.jpg", title: "The Art of Crafting Traditional Moon Cakes", cat: "Behind the Scenes", date: "Jun 26, 2026", excerpt: "Discover the rich heritage and process behind our signature moon cakes, from ingredient selection to the final hand-finished design.", content: `<p>At Columbina, each moon cake is crafted with precision and passion. Our bakers use premium lotus seed paste, salted egg yolks, and hand-stamped molds to create an artisanal treat that blends heritage with modern taste.</p><p>We source ingredients with care and maintain strict quality controls to ensure every moon cake is a luxurious experience. The result is a rich, silky texture with a beautifully balanced sweetness that makes every bite memorable.</p>` },
+            { id: 2, img: "assets/images/Sourdough%20The%20Secret%20to%20Perfect%20Crust.jpg", title: "Sourdough: The Secret to Perfect Crust", cat: "Tips", date: "May 30, 2026", excerpt: "Learn our expert sourdough baking tips so your loaf comes out with the perfect crust and an airy, tender crumb.", content: `<p>Creating a perfect sourdough loaf starts with a lively starter and a gentle folding technique. We allow the dough to rest slowly overnight so the flavors develop naturally.</p><p>Our bakers also pay special attention to oven temperature and steam, giving each loaf a crisp crust and a chewy, open crumb that is ideal for sandwiches or simply enjoyed with butter.</p>` },
+            { id: 3, img: "assets/images/Coffe%20%26%20Pastry%20Pairin%20Guide.jpg", title: "Coffee & Pastry Pairing Guide", cat: "Guide", date: "Jun 08, 2026", excerpt: "Find the perfect coffee pairing for your pastry selection, from buttery croissants to fruity danishes.", content: `<p>Pairing coffee with pastry is all about balance. Light roast coffees work beautifully with fruity, creamy pastries, while darker roasts stand up well to chocolate and nut-forward treats.</p><p>Our recommendations include a smooth latte with a berry danish, a bright filtered coffee alongside a lemon tart, and an espresso shot with a rich chocolate croissant.</p>` }
+        ];
+
+        // Initialize Blog
         const initBlog = () => {
-            const blogs = [
-                { img: "assets/images/The%20Art%20of%20Crafting%20Traditional%20Moon%20Cakes.jpg", title: "The Art of Crafting Traditional Moon Cakes", cat: "Behind the Scenes", date: "Aug 15, 2026" },
-                { img: "assets/images/Sourdough%20The%20Secret%20to%20Perfect%20Crust.jpg", title: "Sourdough: The Secret to Perfect Crust", cat: "Tips", date: "Sep 02, 2026" },
-                { img: "assets/images/Coffe%20%26%20Pastry%20Pairin%20Guide.jpg", title: "Coffee & Pastry Pairing Guide", cat: "Guide", date: "Oct 10, 2026" }
-            ];
-            document.getElementById('blog-grid').innerHTML = blogs.map(b => `
+            document.getElementById('blog-grid').innerHTML = blogPosts.map(b => `
                 <div class="blog-card">
                     <img src="${b.img}" alt="${b.title}" class="blog-img">
                     <div class="blog-content">
                         <div class="blog-meta"><span>${b.cat}</span><span>${b.date}</span></div>
                         <h3 class="blog-heading">${b.title}</h3>
-                        <a href="#" class="blog-read-link" data-blog-alert>Read Article <i class="fas fa-arrow-right blog-read-icon"></i></a>
+                        <p class="blog-excerpt">${b.excerpt}</p>
+                        <a href="#article-${b.id}" class="blog-read-link">Read Article <i class="fas fa-arrow-right blog-read-icon"></i></a>
                     </div>
                 </div>
             `).join('');
+        };
+
+        const initArticle = (id) => {
+            const article = blogPosts.find(post => post.id === id);
+            if(!article) { navigate('404'); return; }
+
+            document.getElementById('article-image').src = article.img;
+            document.getElementById('article-image').alt = article.title;
+            document.getElementById('article-title').innerText = article.title;
+            document.getElementById('article-meta').innerHTML = `<span>${article.cat}</span><span>${article.date}</span>`;
+            document.getElementById('article-content').innerHTML = article.content;
         };
 
         /* ==========================================
@@ -197,6 +210,7 @@
             if(page === 'detail' && dataId) initDetail(dataId);
             if(page === 'gallery') initGallery();
             if(page === 'blog') initBlog();
+            if(page === 'article' && dataId) initArticle(dataId);
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
