@@ -78,6 +78,7 @@
             
             const container = document.getElementById('detail-container');
             const badgesHtml = product.badges.map(b => `<span class="badge-tag badge-${b.toLowerCase().replace(' ','')} detail-badge-inline">${b}</span>`).join('');
+            const isWished = wishlist.some(item => item.id === product.id);
             
             container.innerHTML = `
                 <div class="detail-gallery" data-aos="fade-right">
@@ -86,9 +87,12 @@
                     </a>
                 </div>
                 <div class="detail-info" data-aos="fade-left">
+                    <button class="btn-wishlist-detail ${isWished ? 'active' : ''}" data-wishlist-toggle="${product.id}" aria-label="Toggle Wishlist">
+                        <i class="${isWished ? 'fas' : 'far'} fa-heart"></i>
+                    </button>
                     <span class="detail-category-label">${product.category}</span>
                     <h1>${product.name}</h1>
-                    <div>${badgesHtml}</div>
+                    <div style="margin-bottom: 15px;">${badgesHtml}</div>
                     <div class="product-rating detail-rating-line">
                         ${'<i class="fas fa-star"></i>'.repeat(Math.floor(product.rating))}
                         <span class="detail-review-count">(${product.reviews} Reviews)</span>
@@ -98,18 +102,18 @@
                     
                     <div class="qty-selector">
                         <span class="qty-label">Quantity:</span>
-                        <button class="qty-btn" data-temp-qty="-1">-</button>
+                        <button class="qty-btn" data-temp-qty="-1">−</button>
                         <input type="number" id="detail-qty" class="qty-input" value="1" min="1" max="${product.stock}" readonly>
                         <button class="qty-btn" data-temp-qty="1">+</button>
                         <span class="qty-stock">${product.stock} available</span>
                     </div>
                     
                     <div class="detail-actions">
-                        <button class="btn btn-outline" data-add-detail-cart="${product.id}">
-                            <i class="fas fa-shopping-bag"></i> Add to Cart
+                        <button class="btn btn-outline" data-add-detail-cart="${product.id}" style="justify-content: center; gap: 8px;">
+                            <i class="fas fa-shopping-bag"></i> ADD TO CART
                         </button>
-                        <button class="btn btn-primary btn-wa" data-checkout-single="${product.id}">
-                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        <button class="btn btn-wa" data-checkout-single="${product.id}" style="justify-content: center; gap: 8px;">
+                            <i class="fab fa-whatsapp"></i> ORDER VIA WHATSAPP
                         </button>
                     </div>
                     
@@ -391,6 +395,7 @@
         document.getElementById('sidebar-overlay').addEventListener('click', closeSidebars);
 
         document.addEventListener('click', (event) => {
+            const detailLink = event.target.closest('[data-detail-id]');
             const addCartBtn = event.target.closest('[data-add-cart]');
             const addDetailCartBtn = event.target.closest('[data-add-detail-cart]');
             const wishToggleBtn = event.target.closest('[data-wishlist-toggle]');
@@ -399,6 +404,11 @@
             const checkoutSingleBtn = event.target.closest('[data-checkout-single]');
             const detailCloseBtn = event.target.closest('[data-detail-close]');
             const qtyBtn = event.target.closest('[data-temp-qty]');
+
+            if(detailLink && !event.target.closest('[data-add-cart]') && !event.target.closest('[data-wishlist-toggle]')) {
+                navigate('detail', parseInt(detailLink.dataset.detailId, 10));
+                return;
+            }
 
             if(addCartBtn) {
                 addToCart(parseInt(addCartBtn.dataset.addCart, 10));
