@@ -51,6 +51,10 @@
             </ul>
 
             <div class="nav-icons">
+                <div class="locale-controls" aria-label="Language controls">
+                    <button class="locale-btn active" type="button" data-lang-toggle="en">EN</button>
+                    <button class="locale-btn" type="button" data-lang-toggle="id">ID</button>
+                </div>
                 <button class="nav-icon" id="theme-toggle" aria-label="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -103,7 +107,7 @@
                 <div class="container">
                     <div class="grid grid-2 align-center">
                         <div data-aos="fade-right">
-                            <img src="assets\images\The Art of Crafting Traditional Moon Cakes.jpg" alt="Baking Process" class="media-rounded">
+                            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=80" alt="Baking Process" class="media-rounded">
                         </div>
                         <div data-aos="fade-left" class="story-copy">
                             <h2 class="section-title">The Art of Baking</h2>
@@ -178,7 +182,7 @@
                             <p class="about-copy">Today, under the guidance of our Master Bakers, we continue to innovate while honoring our roots, ensuring every bite is a celebration of taste and elegance.</p>
                         </div>
                         <div data-aos="fade-left">
-                            <img src="assets/images/master_baker.jpg" alt="Master Baker" class="media-rounded">
+                            <img src="assets/images/master_baker.png" alt="Master Baker" class="media-rounded">
                         </div>
                     </div>
                 </div>
@@ -246,9 +250,9 @@
                     </div>
 
                     <div class="add-testimonial-form" data-aos="fade-up" data-aos-delay="200" style="max-width: 600px; margin: 50px auto 0; background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow);">
-                        <h2 class="text-center" style="margin-bottom: 20px;">Send Your Testimoni!</h2>
+                        <h2 class="text-center" style="margin-bottom: 20px;">Kirim Testimoni Kamu!</h2>
                         <form id="form-testimoni" class="contact-form">
-                            <input type="text" id="testi-nama" placeholder="Your Name" required>
+                            <input type="text" id="testi-nama" placeholder="Nama Kamu" required>
                             <select id="testi-rating" required style="width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid var(--surface); border-radius: var(--radius); background: var(--bg); color: var(--text);">
                                 <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
                                 <option value="4">⭐⭐⭐⭐ (4/5)</option>
@@ -256,8 +260,8 @@
                                 <option value="2">⭐⭐ (2/5)</option>
                                 <option value="1">⭐ (1/5)</option>
                             </select>
-                            <textarea id="testi-pesan" rows="4" placeholder="Write your sweet experience here..." required></textarea>
-                            <button type="submit" class="btn btn-primary btn-full">Submit Testimonial</button>
+                            <textarea id="testi-pesan" rows="4" placeholder="Tulis pengalaman manismu di sini..." required></textarea>
+                            <button type="submit" class="btn btn-primary btn-full">Kirim Testimoni</button>
                         </form>
                     </div>
                 </div>
@@ -410,7 +414,7 @@
         <div class="sidebar-footer">
             <div class="cart-total">
                 <span>Subtotal:</span>
-                <span id="cart-total-price">$0.00</span>
+                <span id="cart-total-price" style="text-align: right;">$0.00</span>
             </div>
             <button class="btn btn-primary btn-wa checkout-wa-btn" id="checkout-wa-btn">
                 <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
