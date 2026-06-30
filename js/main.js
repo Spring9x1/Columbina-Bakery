@@ -117,7 +117,7 @@ const i18n = {
         emptyCart: 'Keranjang kamu masih kosong.', emptyWishlist: 'Wishlist kamu masih kosong.', remove: 'Hapus',
         quickLinks: 'Tautan Cepat', customerCare: 'Layanan Pelanggan', newsletter: 'Newsletter',
         newsletterCopy: 'Berlangganan untuk promo dan update terbaru.', emailAddress: 'Alamat Email',
-        rights: '© 2026 Columbina Bakery. Seluruh hak cipta dilindungi. Dibuat untuk Spring.',
+        rights: '© 2026 Columbina Bakery. Seluruh hak cipta dilindungi. Dibuat untuk Columbina..',
         saved: 'Hemat', noProducts: 'Produk tidak ditemukan untuk', cartEmptyAlert: 'Keranjang kamu masih kosong!',
         testiThanks: 'Terima kasih untuk testimoninya! Sudah berhasil ditambahkan.',
         contactThanks: 'Terima kasih! Pesan kamu sudah kami terima.', newsletterThanks: 'Terima kasih sudah berlangganan!',
