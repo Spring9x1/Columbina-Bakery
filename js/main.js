@@ -9,6 +9,12 @@
         let cart = JSON.parse(localStorage.getItem('columbina_cart')) || [];
         let wishlist = JSON.parse(localStorage.getItem('columbina_wishlist')) || [];
         let currentTheme = localStorage.getItem('columbina_theme') || 'light';
+        
+        let defaultTesti = [
+            { nama: "Ahmad", rating: 5, pesan: "Kuenya enak banget! Cocok buat nemenin santai sore." },
+            { nama: "Budi", rating: 4, pesan: "Manisnya pas, teksturnya juga lembut." }
+        ];
+        let testimonials = JSON.parse(localStorage.getItem('columbina_testi')) || defaultTesti;
 
         const saveCart = () => { localStorage.setItem('columbina_cart', JSON.stringify(cart)); updateCartUI(); }
         const saveWishlist = () => { localStorage.setItem('columbina_wishlist', JSON.stringify(wishlist)); updateWishlistUI(); }
@@ -185,6 +191,22 @@
             document.getElementById('article-content').innerHTML = article.content;
         };
 
+        // Initialize Testimonials
+        const initTestimonials = () => {
+            const grid = document.getElementById('testimonial-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = testimonials.map(t => `
+                <div class="testimonial-card">
+                    <div class="product-rating" style="margin-bottom: 10px; color: #f1c40f;">
+                        ${'<i class="fas fa-star"></i>'.repeat(t.rating)}
+                    </div>
+                    <p class="testi-text">"${t.pesan}"</p>
+                    <h4 style="color: var(--primary); margin-top: 15px;">— ${t.nama}</h4>
+                </div>
+            `).join('');
+        };
+
         /* ==========================================
            4. ROUTER (SPA LOGIC)
            ========================================== */
@@ -215,6 +237,7 @@
             if(page === 'gallery') initGallery();
             if(page === 'blog') initBlog();
             if(page === 'article' && dataId) initArticle(dataId);
+            if(page === 'testimonial') initTestimonials();
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
@@ -538,4 +561,24 @@
             const hash = window.location.hash.substring(1) || 'home';
             const parts = hash.split('-');
             navigate(parts[0], parts[1] ? parseInt(parts[1]) : null);
+
+            // Listener Form Testimoni
+            const formTesti = document.getElementById('form-testimoni');
+            if(formTesti) {
+                formTesti.addEventListener('submit', (e) => {
+                    e.preventDefault(); 
+                    
+                    const nama = document.getElementById('testi-nama').value;
+                    const rating = parseInt(document.getElementById('testi-rating').value);
+                    const pesan = document.getElementById('testi-pesan').value;
+                    
+                    testimonials.unshift({ nama, rating, pesan });
+                    localStorage.setItem('columbina_testi', JSON.stringify(testimonials));
+                    
+                    initTestimonials();
+                    formTesti.reset();
+                    
+                    alert('Makasih ya testimoninya! Udah masuk tuh. 👍');
+                });
+            }
         });
