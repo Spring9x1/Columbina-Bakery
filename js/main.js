@@ -70,7 +70,7 @@ const i18n = {
         emptyCart: 'Your cart is empty.', emptyWishlist: 'Your wishlist is empty.', remove: 'Remove',
         quickLinks: 'Quick Links', customerCare: 'Customer Care', newsletter: 'Newsletter',
         newsletterCopy: 'Subscribe to get special offers and updates.', emailAddress: 'Email Address',
-        rights: '© 2026 Columbina Bakery. All rights reserved. Crafted for Spring.',
+        rights: '© 2026 Columbina Bakery. All rights reserved. Crafted for Columbina. IT Teams.',
         saved: 'You save', noProducts: 'No products found for', cartEmptyAlert: 'Your cart is empty!',
         testiThanks: 'Thank you for your testimonial! It has been added.',
         contactThanks: 'Thank you! Your message has been received.', newsletterThanks: 'Thank you for subscribing!',
